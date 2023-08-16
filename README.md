@@ -5,7 +5,7 @@
   <img src="src/image/Cizzla_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Leaderboard README Template</b></h3>
+  <h3><b>Math Magicians README Template</b></h3>
 
 </div>
 
@@ -30,11 +30,11 @@
 
 
 
-# 📖 Leaderboard Website <a name="about-project"></a>
+# 📖 Math Magicians Website <a name="about-project"></a>
 
 
 
-**To-Do List** Leaderboard website is an application used to display the name of player and their scores.
+**Math Magicians** Math Magicians website is an application used to display a single page application that contains home section,a calculator section and a quote section.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -46,9 +46,7 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://www.w3schools.com/html/default.asp">HTML</a></li>
-    <li><a href="https://www.w3schools.com/css/default.asp/">CSS</a></li>
-    <li><a href="https://www.w3schools.com/css/default.asp/">Javascript</a></li>
+    <li><a href="https://www.w3schools.com/html/default.asp">React</a></li>
   </ul>
 </details>
 
@@ -59,7 +57,8 @@
 
 
 - **Homepage**
-- **About**
+- **Calculator**
+- **Quote**
 
 
 
@@ -78,8 +77,7 @@ In order to run this project you need:
 <ul>
     <li>Web Browser</li>
     <li>Code Editor</li>
-    <li>Html Knowledge</li>
-    <li>Css Knowledge</li>
+    <li>React Knowledge</li>
     <li>Local file storage</li>
 </ul>
 
@@ -94,7 +92,7 @@ Run this commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/iankiema/Leaderboard-Website.git
+  git clone https://github.com/iankiema/Math-Magicians.git
 ```
 
 ### Install
@@ -117,7 +115,7 @@ To run the project, execute the following command:
 Run this  command:
 
 ```sh
-  start index.html
+  start npm start
 ```
 
 
