@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import CalculatorPage from './pages/CalculatorPage';
+import QuotePage from './pages/QuotePage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://github.com/iankiema"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ian Kiema Student at Microverse : click here to visit my Github.
-        </a>
-        <h1>Hello World</h1>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/calculator" component={CalculatorPage} />
+          <Route path="/quote" component={QuotePage} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
