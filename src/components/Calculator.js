@@ -53,12 +53,6 @@ const Calculator = () => {
     }
   };
 
-  // const handleButtonKeyPress = (event, value) => {
-  //   if (event.key === 'Enter') {
-  //     handleButtonClick(value);
-  //   }
-  // };
-
   const renderButton = (value, className) => (
     <Button key={value} value={value} className={className} onClick={handleButtonClick} />
   );
