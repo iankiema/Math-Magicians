@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Quote = () => {
   const [quote, setQuote] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch a random math-related quote from the API
   const fetchRandomQuote = async () => {
     try {
-      const response = await fetch('https://api.apithis.net/math');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      const apiUrl = 'https://api.api-ninjas.com/v1/quotes?category=success';
+      const apiKey = 'IWrsocgunOOPSPX1lY4wpg==tgIScuaOsYNEJMj8';
+      const response = await axios.get(apiUrl, {
+        headers: {
+          'X-Api-Key': apiKey,
+        },
+      });
+
+      if (response.status !== 200) {
+        throw new Error(`Error: ${response.status} ${response.data}`);
       }
-      const data = await response.json();
-      setQuote(data.result);
+      setQuote(response.data[0].quote || 'No joke available');
       setIsLoading(false);
     } catch (err) {
       setError(err);
