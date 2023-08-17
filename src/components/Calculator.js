@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Calculator.css';
+import Button from './Button';
 
 const Calculator = () => {
   const [displayValue, setDisplayValue] = useState('0');
@@ -52,41 +53,39 @@ const Calculator = () => {
     }
   };
 
-  const renderButton = (value) => (
-    <button key={value} type="button" onClick={() => handleButtonClick(value)}>
-      {value}
-    </button>
-  );
+  // const handleButtonKeyPress = (event, value) => {
+  //   if (event.key === 'Enter') {
+  //     handleButtonClick(value);
+  //   }
+  // };
 
-  const renderOperatorButton = (value) => (
-    <button key={value} type="button" onClick={() => handleButtonClick(value)} className="operator">
-      {value}
-    </button>
-  );
-
-  const renderSpecialButton = (value) => (
-    <button key={value} type="button" onClick={() => handleButtonClick(value)} className="special">
-      {value}
-    </button>
+  const renderButton = (value, className) => (
+    <Button key={value} value={value} className={className} onClick={handleButtonClick} />
   );
 
   return (
     <div className="calculator">
-      <div className="display">{displayValue}</div>
-      <div className="button-grid">
-        {/* Special buttons */}
-        {['AC', '%'].map((value) => renderSpecialButton(value))}
-        {/* Normal buttons */}
-        {['9', '8', '4', '5', '6', '7', '0', '1', '2', '3', '.'].map((value) => renderButton(value))}
-      </div>
-      <div className="button-grid operator-grid">
-        {/* Operator buttons */}
-        {['+', '-', '*', '/'].map((value) => renderOperatorButton(value))}
-        {/* Equal button */}
-        {['='].map((value) => renderButton(value))}
-      </div>
+      <div className="button output dark-gray">{displayValue}</div>
+      {renderButton('AC', 'button')}
+      {renderButton('+/-', 'button')}
+      {renderButton('%', 'button')}
+      {renderButton('/', 'button orange')}
+      {renderButton('7', 'button')}
+      {renderButton('8', 'button')}
+      {renderButton('9', 'button')}
+      {renderButton('*', 'button orange')}
+      {renderButton('4', 'button')}
+      {renderButton('5', 'button')}
+      {renderButton('6', 'button')}
+      {renderButton('-', 'button orange')}
+      {renderButton('1', 'button')}
+      {renderButton('2', 'button')}
+      {renderButton('3', 'button')}
+      {renderButton('+', 'button orange')}
+      {renderButton('0', 'button zero')}
+      {renderButton('.', 'button')}
+      {renderButton('=', 'button orange')}
     </div>
   );
 };
-
 export default Calculator;

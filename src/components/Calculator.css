@@ -1,66 +1,51 @@
 .calculator {
   width: 400px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.display {
-  font-size: 24px;
-  margin-bottom: 10px;
-  background-color: #f5f5f5;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.button-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  margin-top: 10px;
+  grid-auto-rows: 80px;
+  background-color: white;
 }
 
-.button-grid button {
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background-color: #f5f5f5;
+.button {
+  display: inline-block;
+  padding: 20px 20px;
+  font-size: 30px;
+  background-color: #fff;
+  color: black;
+  border: 1px solid darkgrey;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.button-grid button.operator {
-  background-color: #f39c12;
+.button:hover {
+  background-color: darkgrey;
+}
+
+.output {
+  grid-column: 1/5;
+}
+
+.zero {
+  grid-column: 1/3;
+}
+
+.orange {
+  background-color: #ff9500;
+}
+
+.light-gray {
+  background-color: #d4d4d2;
+}
+
+.dark-gray {
+  background-color: #505050;
   color: white;
+  text-align: end;
 }
 
-.button-grid button.operator:hover {
-  background-color: #e67e22;
-}
-
-.button-grid button.operator:active {
-  background-color: #d35400;
-}
-
-.button-grid button.special {
-  background-color: #3498db;
-  color: white;
-}
-
-.button-grid button.special:hover {
-  background-color: #2980b9;
-}
-
-.button-grid button.special:active {
-  background-color: #217dbb;
-}
-
-/* Updated styles for vertical arrangement of operator buttons */
-.operator-grid {
-  grid-column: 4 / 5; /* Position the operator buttons in the last column */
-  grid-row: span 5;   /* Extend the operator buttons vertically */
+.dark-gray:hover {
+  background-color: #505050;
 }
