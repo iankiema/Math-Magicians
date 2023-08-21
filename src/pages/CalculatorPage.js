@@ -11,6 +11,7 @@ const CalculatorPage = () => (
     </header>
     <h1>Calculator</h1>
     <div className="calculator-container">
+      <h2>Let do some maths!</h2>
       <Calculator />
     </div>
   </div>

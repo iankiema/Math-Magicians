@@ -42,3 +42,14 @@
 .nav-link:active {
   background-color: #0056b3;
 }
+
+.calculator-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 150px;
+}
+
+.quote-header {
+  margin-bottom: 50px;
+}
