@@ -9,6 +9,7 @@ const Home = () => (
       <Navigation />
     </header>
     <main className="content">
+      <h2>Welcome to our page</h2>
       <p className="tagline">The Math Magician website is an interactive online calculator application designed to provide users with a convenient and intuitive tool for performing various mathematical operations. The website offers a user-friendly interface that resembles a traditional calculator, enabling users to perform arithmetic calculations, handle percentages, and execute basic mathematical functions.</p>
     </main>
   </div>
