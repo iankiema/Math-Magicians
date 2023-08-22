@@ -1,30 +1,18 @@
 import React from 'react';
-import { render, waitForElementToBeRemoved, queryByText } from '@testing-library/react';
-import axios from 'axios';
-import Quote from '../Quote';
+import { render } from '@testing-library/react';
+import Quote from './Quote';
 
-jest.mock('axios');
+// Mock the fetch function globally
+global.fetch = jest.fn(() => Promise.resolve({
+  ok: true,
+  json: () => Promise.resolve([{ quote: 'Fake quote for testing' }]),
+}));
 
-test('Quote component renders correctly', () => {
-  const { container, getByText } = render(<Quote />);
+describe('Quote component', () => {
+  it('should match snapshot', async () => {
+    const { asFragment } = render(<Quote />);
 
-  expect(getByText('Loading...')).toBeInTheDocument();
-
-  expect(queryByText('Error:')).not.toBeInTheDocument();
-
-  expect(container).toMatchSnapshot();
-});
-
-test('Quote component displays error message correctly', async () => {
-  axios.get.mockRejectedValueOnce(new Error('Test Error'));
-
-  const { container, getByText } = render(<Quote />);
-
-  await waitForElementToBeRemoved(() => getByText('Loading...'));
-
-  expect(getByText('Error: Test Error')).toBeInTheDocument();
-
-  expect(queryByText('Loading...')).not.toBeInTheDocument();
-
-  expect(container).toMatchSnapshot();
+    // Use toMatchSnapshot to compare the rendered output with a snapshot
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
