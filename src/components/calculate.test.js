@@ -1,4 +1,4 @@
-import Calculate from '../Calculate';
+import Calculate from './Calculate';
 
 // Test Calculate function
 test('Calculate function works correctly', () => {

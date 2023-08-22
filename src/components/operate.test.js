@@ -1,4 +1,4 @@
-import Operate from '../Operate';
+import Operate from './Operate';
 
 // Test Operate function
 test('Operate function works correctly for addition', () => {

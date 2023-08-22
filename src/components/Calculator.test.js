@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Calculator from '../Calculator';
+import Calculator from './Calculator';
 
 test('Calculator updates data on button click', () => {
   const { getByText, getByTestId } = render(<Calculator />);
