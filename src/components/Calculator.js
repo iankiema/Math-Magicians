@@ -20,7 +20,7 @@ const Calculator = () => {
 
   return (
     <div className="calculator">
-      <div className="button output dark-gray">{calculatorData.next || calculatorData.total || '0'}</div>
+      <div className="button output dark-gray" data-testid="next-display">{calculatorData.next || calculatorData.total || '0'}</div>
       {renderButton('AC', 'button')}
       {renderButton('+/-', 'button')}
       {renderButton('%', 'button')}
