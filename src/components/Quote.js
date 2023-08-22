@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { act } from 'react-dom/test-utils';
 
 const Quote = () => {
   const [quote, setQuote] = useState('');
@@ -10,7 +10,7 @@ const Quote = () => {
     try {
       const apiUrl = 'https://api.api-ninjas.com/v1/quotes?category=success';
       const apiKey = 'IWrsocgunOOPSPX1lY4wpg==tgIScuaOsYNEJMj8';
-      const response = await axios.get(apiUrl, {
+      const response = await fetch(apiUrl, {
         headers: {
           'X-Api-Key': apiKey,
         },
@@ -19,11 +19,16 @@ const Quote = () => {
       if (response.status !== 200) {
         throw new Error(`Error: ${response.status} ${response.data}`);
       }
-      setQuote(response.data[0].quote || 'No joke available');
-      setIsLoading(false);
+
+      act(() => {
+        setQuote(response.data[0].quote || 'No joke available');
+        setIsLoading(false);
+      });
     } catch (err) {
-      setError(err);
-      setIsLoading(false);
+      act(() => {
+        setError(err);
+        setIsLoading(false);
+      });
     }
   };
 
