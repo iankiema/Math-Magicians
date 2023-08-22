@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { act } from 'react-dom/test-utils';
 
 const Quote = () => {
   const [quote, setQuote] = useState('');
@@ -15,16 +16,19 @@ const Quote = () => {
         },
       });
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${await response.text()}`);
+      if (response.status !== 200) {
+        throw new Error(`Error: ${response.status} ${response.data}`);
       }
 
-      const responseData = await response.json();
-      setQuote(responseData[0].quote || 'No joke available');
-      setIsLoading(false);
+      act(() => {
+        setQuote(response.data[0].quote || 'No joke available');
+        setIsLoading(false);
+      });
     } catch (err) {
-      setError(err);
-      setIsLoading(false);
+      act(() => {
+        setError(err);
+        setIsLoading(false);
+      });
     }
   };
 
